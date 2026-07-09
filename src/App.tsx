@@ -6,6 +6,8 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 // Types
 interface Product {
   id: number;
@@ -582,7 +584,7 @@ const App: React.FC = () => {
         {/* Footer */}
         <footer className="bg-black py-16 px-6 border-t border-[#2A2A2A]">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-y-6 text-xs tracking-[1.5px] text-[#666]">
-            <div>© {new Date().getFullYear()} DEPLAN TRADING ENTERPRISE. ALL RIGHTS RESERVED.</div>
+            <div>© {CURRENT_YEAR} DEPLAN TRADING ENTERPRISE. ALL RIGHTS RESERVED.</div>
             <div className="flex gap-x-8">
               <div>LICENSED BY GHANA POLICE SERVICE</div>
               <div>PRIVACY &amp; COMPLIANCE</div>
@@ -603,3 +605,5 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+
