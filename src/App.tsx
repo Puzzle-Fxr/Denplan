@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { 
   Menu, X, Phone, MapPin, Mail, Award, Shield, Clock, ChevronRight, 
-  ArrowRight, Star 
+  ArrowRight 
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -273,8 +273,8 @@ const ProductModal: React.FC<{
             <div>
               <div className="uppercase tracking-[2px] text-xs mb-3 text-[#C5A26F]">SPECIFICATIONS</div>
               <ul className="grid grid-cols-1 gap-y-2.5 text-sm">
-                {product.specs.map((spec, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-[#F5F5F5]">
+                {product.specs.map(spec => (
+                  <li key={spec} className="flex items-center gap-3 text-[#F5F5F5]">
                     <div className="w-1 h-1 bg-[#C5A26F] rounded-full" /> {spec}
                   </li>
                 ))}
@@ -373,8 +373,8 @@ const Home: React.FC<{ onProductClick: (p: Product) => void }> = ({ onProductCli
             { icon: <Shield className="w-4 h-4" />, label: "FULLY LICENSED" },
             { icon: <Award className="w-4 h-4" />, label: "CERTIFIED DEALER" },
             { icon: <Clock className="w-4 h-4" />, label: "15+ YEARS EXPERIENCE" }
-          ].map((item, idx) => (
-            <div key={idx} className="flex items-center gap-3 text-[#C5A26F] text-xs tracking-[2px]">
+          ].map(item => (
+            <div key={item.label} className="flex items-center gap-3 text-[#C5A26F] text-xs tracking-[2px]">
               {item.icon} {item.label}
             </div>
           ))}
@@ -435,8 +435,13 @@ const Home: React.FC<{ onProductClick: (p: Product) => void }> = ({ onProductCli
           </p>
         </div>
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-sm text-[#B8B8B8]">
-          {["Ghana Police Service License", "Firearms & Ammunition Act, 2023", "Import & Export Certified", "Background Verification"].map((item, i) => (
-            <div key={i} className="border border-[#2A2A2A] py-5 px-5 tracking-tight">{item}</div>
+          {[
+            "Ghana Police Service License",
+            "Firearms & Ammunition Act, 2023",
+            "Import & Export Certified",
+            "Background Verification"
+          ].map(item => (
+            <div key={item} className="border border-[#2A2A2A] py-5 px-5 tracking-tight">{item}</div>
           ))}
         </div>
       </div>
@@ -493,8 +498,8 @@ const About: React.FC = () => (
           { title: "Our Promise", text: "Only the finest, field-proven products. Every gun is inspected and test-fired before sale." },
           { title: "Expert Guidance", text: "Our team has over 60 combined years of hunting, sporting, and firearms experience." },
           { title: "Aftercare", text: "Full after-sales support, servicing, and genuine spare parts sourcing." }
-        ].map((i, idx) => (
-          <div key={idx}>
+        ].map(i => (
+          <div key={i.title}>
             <div className="text-[#C5A26F] tracking-widest text-xs mb-3">{i.title.toUpperCase()}</div>
             <p>{i.text}</p>
           </div>

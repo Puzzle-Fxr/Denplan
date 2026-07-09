@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig(async ({ mode }) => {
   const plugins = [react(), tailwindcss()];
   try {
-    // @ts-ignore
+    // @ts-expect-error Missing types for this plugin
     const m = await import('./.vite-source-tags.js');
     plugins.push(m.sourceTags());
   } catch {}
