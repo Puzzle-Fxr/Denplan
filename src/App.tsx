@@ -147,7 +147,7 @@ const Navigation: React.FC = () => {
               <img 
                 src="/uploads/upload_1.png" 
                 alt="Deplan Trading Enterprise" 
-                className="h-14 w-auto"
+                className="h-25 w-auto"
               />
             </div>
           </Link>
