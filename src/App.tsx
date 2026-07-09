@@ -584,6 +584,7 @@ const App: React.FC = () => {
           <Route path="/accessories" element={<CategoryPage category="accessories" onProductClick={setSelectedProduct} />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         </Routes>
 
         {/* Footer */}
@@ -592,7 +593,7 @@ const App: React.FC = () => {
             <div>© {CURRENT_YEAR} DEPLAN TRADING ENTERPRISE. ALL RIGHTS RESERVED.</div>
             <div className="flex gap-x-8">
               <div>LICENSED BY GHANA POLICE SERVICE</div>
-              <div>PRIVACY &amp; COMPLIANCE</div>
+              <Link to="/privacy-policy" className="hover:text-white transition-colors">PRIVACY POLICY</Link>
             </div>
             <div>ACCRA, GHANA</div>
           </div>
@@ -610,5 +611,115 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+{{ /* New Privacy Policy Page Component */ }}
+const PrivacyPolicyPage: React.FC = () => {
+  return (
+    <div className="pt-20 bg-[#0F0F0F] min-h-screen">
+      <div className="container mx-auto p-8 max-w-4xl pt-20 pb-24">
+        <div className="text-[#C5A26F] text-xs tracking-[4px]">LEGAL &amp; COMPLIANCE</div>
+        <h1 className="serif text-[72px] tracking-[-3.5px] text-white leading-none mt-2 mb-9">Privacy Policy</h1>
+
+        <div className="prose prose-invert max-w-none text-[#B8B8B8] text-[15px] leading-[1.75]">
+          <p className="mb-4">
+            **Last Updated:** October 26, {CURRENT_YEAR}
+          </p>
+
+          <p className="mb-6">
+            Your privacy is important to us. This Privacy Policy explains how Deplan Trading Enterprise ("we," "us," or "our") collects, uses, discloses, and safeguards your information when you visit our website deplantrading.com and use our services. Please read this Privacy Policy carefully. If you do not agree with the terms of this Privacy Policy, please do not access the site.
+          </p>
+
+          <h2 className="text-2xl font-semibold mb-4 text-white">1. Information We Collect</h2>
+          <p className="mb-4">
+            We may collect information about you in a variety of ways. The information we may collect on the site includes:
+          </p>
+          <ul className="list-disc list-inside mb-4 ml-4">
+            <li>
+              **Personal Data:** Personally identifiable information, such as your name, shipping address, email address, and telephone number, that you voluntarily give to us when you register with the site or when you choose to participate in various activities related to the site, such as online chat and message boards.
+            </li>
+            <li>
+              **Derivative Data:** Information our servers automatically collect when you access the site, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing the site.
+            </li>
+            <li>
+              **Financial Data:** Financial information, such as data related to your payment method (e.g., valid credit card number, card brand, expiration date) that we may collect when you purchase, order, return, exchange, or request information about our services from the site.
+            </li>
+            <li>
+              **Data from Social Networks:** User information from social networking sites, such as Facebook, Instagram, and Twitter, if you connect to our site through these networks.
+            </li>
+            <li>
+              **Mobile Device Data:** Device information, such as your mobile device ID, model, and manufacturer, and information about the location of your device, if you access the site from a mobile device.
+            </li>
+          </ul>
+
+          <h2 className="text-2xl font-semibold mb-4 text-white">2. How We Use Your Information</h2>
+          <p className="mb-4">
+            Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the site to:
+          </p>
+          <ul className="list-disc list-inside mb-4 ml-4">
+            <li>Create and manage your account.</li>
+            <li>Process your transactions and send notices about your transactions.</li>
+            <li>Email you regarding your account or order.</li>
+            <li>Enable user-to-user communications.</li>
+            <li>Generate a personal profile about you to make future visits to the site more personalized.</li>
+            <li>Increase the efficiency and operation of the site.</li>
+            <li>Monitor and analyze usage and trends to improve your experience with the site.</li>
+            <li>Notify you of updates to the site or services.</li>
+            <li>Offer new products, services, mobile applications, and/or recommendations to you.</li>
+            <li>Perform other business activities as needed.</li>
+          </ul>
+
+          <h2 className="text-2xl font-semibold mb-4 text-white">3. Disclosure of Your Information</h2>
+          <p className="mb-4">
+            We may share information we have collected about you in certain situations. Your information may be disclosed as follows:
+          </p>
+          <ul className="list-disc list-inside mb-4 ml-4">
+            <li>
+              **By Law or to Protect Rights:** If we believe the release of information about you is necessary to respond to legal process, to investigate or remedy potential violations of our policies, or to protect the rights, property, and safety of others, we may share your information as permitted or required by any applicable law, rule, or regulation.
+            </li>
+            <li>
+              **Third-Party Service Providers:** We may share your information with third parties that perform services for us or on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance.
+            </li>
+            <li>
+              **Marketing Communications:** With your consent, or with an opportunity for you to withdraw consent, we may share your information with third parties for marketing purposes, as permitted by law.
+            </li>
+            <li>
+              **Affiliates:** We may share your information with our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include our parent company and any subsidiaries, joint venture partners or other companies that we control or that are under common control with us.
+            </li>
+            <li>
+              **Business Partners:** We may share your information with our business partners to offer you certain products, services or promotions.
+            </li>
+          </ul>
+
+          <h2 className="text-2xl font-semibold mb-4 text-white">4. Security of Your Information</h2>
+          <p className="mb-4">
+            We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.
+          </p>
+
+          <h2 className="text-2xl font-semibold mb-4 text-white">5. Policy for Children</h2>
+          <p className="mb-4">
+            We do not knowingly solicit information from or market to children under the age of 13. If you become aware of any data we have collected from children under age 13, please contact us using the contact information provided below.
+          </p>
+
+          <h2 className="text-2xl font-semibold mb-4 text-white">6. Changes to This Privacy Policy</h2>
+          <p className="mb-4">
+            We may update this Privacy Policy from time to time. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. We encourage you to review this Privacy Policy frequently to be informed of how we are protecting your information.
+          </p>
+
+          <h2 className="text-2xl font-semibold mb-4 text-white">7. Contact Us</h2>
+          <p className="mb-4">
+            If you have questions or comments about this Privacy Policy, please contact us at:
+          </p>
+          <p className="mb-4">
+            Deplan Trading Enterprise <br />
+            18 Independence Avenue, Ridge <br />
+            Accra, Ghana <br />
+            info@deplantrading.com <br />
+            +233 302 123 456 <br />
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 
