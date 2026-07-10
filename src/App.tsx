@@ -612,16 +612,22 @@ const AppContent: React.FC = () => {
       </Routes>
 
       {/* Footer */}
-      <footer className="bg-black py-16 px-6 border-t border-[#2A2A2A]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-y-6 text-xs tracking-[1.5px] text-[#666]">
-          <div>© {CURRENT_YEAR} DEPLAN TRADING ENTERPRISE. ALL RIGHTS RESERVED.</div>
-          <div className="flex gap-x-8">
-            <div>LICENSED BY GHANA POLICE SERVICE</div>
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">PRIVACY POLICY</Link>
+        <footer className="bg-black py-16 px-6 border-t border-[#2A2A2A]">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-y-6 text-xs tracking-[1.5px] text-[#666]">
+            <div>© {CURRENT_YEAR} DEPLAN TRADING ENTERPRISE. ALL RIGHTS RESERVED.</div>
+            <div className="flex gap-x-8">
+              <div>LICENSED BY GHANA POLICE SERVICE</div>
+              <Link 
+                to="/privacy-policy" 
+                className="hover:text-white transition-colors"
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                PRIVACY POLICY
+              </Link>
+            </div>
+            <div>ACCRA, GHANA</div>
           </div>
-          <div>ACCRA, GHANA</div>
-        </div>
-      </footer>
+        </footer>
 
       {/* Product Modal */}
       <AnimatePresence>
