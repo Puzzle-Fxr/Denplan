@@ -137,17 +137,26 @@ const Navigation: React.FC = () => {
     { path: '/contact', label: 'Contact' },
   ];
 
+  const scrollToTopAndCloseMenu = () => {
+    window.scrollTo(0, 0);
+    setIsOpen(false);
+  };
+  
   return (
     <nav className="fixed top-0 left-0 right-0 bg-[#0F0F0F]/95 backdrop-blur-lg border-b border-[#2A2A2A] z-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link 
+            to="/" 
+            className="flex items-center gap-3" 
+            onClick={() => window.scrollTo(0, 0)}
+          >
             <div className="flex items-center">
               <img 
                 src="/images/denplanlogo.png" 
                 alt="Deplan Trading Enterprise" 
-                className="h-18 w-auto"
+                className="h-14 w-auto"
               />
             </div>
           </Link>
@@ -161,6 +170,7 @@ const Navigation: React.FC = () => {
                 className={`nav-link text-sm font-medium tracking-[1px] uppercase transition-colors ${
                   location.pathname === link.path ? 'text-[#C5A26F]' : 'text-[#F5F5F5] hover:text-[#C5A26F]'
                 }`}
+                onClick={() => window.scrollTo(0, 0)}
               >
                 {link.label}
               </Link>
@@ -172,6 +182,7 @@ const Navigation: React.FC = () => {
             <Link 
               to="/contact" 
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#C5A26F] hover:bg-[#A67C52] text-[#0F0F0F] text-sm font-semibold tracking-wider transition-all active:scale-[0.985]"
+              onClick={() => window.scrollTo(0, 0)}
             >
               INQUIRE NOW
             </Link>
@@ -202,7 +213,7 @@ const Navigation: React.FC = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  onClick={() => setIsOpen(false)}
+                  onClick={scrollToTopAndCloseMenu}
                   className={`text-lg tracking-wider ${location.pathname === link.path ? 'text-[#C5A26F]' : 'text-[#F5F5F5]'}`}
                 >
                   {link.label}
@@ -210,7 +221,7 @@ const Navigation: React.FC = () => {
               ))}
               <Link 
                 to="/contact" 
-                onClick={() => setIsOpen(false)}
+                onClick={scrollToTopAndCloseMenu}
                 className="mt-4 inline-block text-center py-4 bg-[#C5A26F] text-[#0F0F0F] font-semibold tracking-widest"
               >
                 INQUIRE NOW
@@ -352,10 +363,18 @@ const Home: React.FC<{ onProductClick: (p: Product) => void }> = ({ onProductCli
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/shotguns" className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#C5A26F] hover:bg-[#A67C52] text-[#0F0F0F] font-semibold tracking-[2px] transition-all text-sm">
+            <Link 
+              to="/shotguns" 
+              className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#C5A26F] hover:bg-[#A67C52] text-[#0F0F0F] font-semibold tracking-[2px] transition-all text-sm"
+              onClick={() => window.scrollTo(0, 0)}
+            >
               EXPLORE OUR COLLECTION <ChevronRight size={18} />
             </Link>
-            <Link to="/contact" className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-[#C5A26F] hover:bg-white/5 text-[#F5F5F5] font-semibold tracking-[2px] text-sm transition-all">
+            <Link 
+              to="/contact" 
+              className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-[#C5A26F] hover:bg-white/5 text-[#F5F5F5] font-semibold tracking-[2px] text-sm transition-all"
+              onClick={() => window.scrollTo(0, 0)}
+            >
               SPEAK WITH OUR TEAM
             </Link>
           </div>
@@ -388,7 +407,13 @@ const Home: React.FC<{ onProductClick: (p: Product) => void }> = ({ onProductCli
             <div className="text-[#C5A26F] text-xs tracking-[3px] mb-1">CURATED SELECTIONS</div>
             <h2 className="serif text-white text-6xl tracking-[-1.6px]">Featured Products</h2>
           </div>
-          <Link to="/shotguns" className="hidden md:flex items-center gap-2 text-sm text-[#C5A26F] hover:text-white transition-colors tracking-widest">VIEW ALL <ArrowRight size={16} /></Link>
+          <Link 
+            to="/shotguns" 
+            className="hidden md:flex items-center gap-2 text-sm text-[#C5A26F] hover:text-white transition-colors tracking-widest"
+            onClick={() => window.scrollTo(0, 0)}
+          >
+          VIEW ALL <ArrowRight size={16} />
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -408,7 +433,12 @@ const Home: React.FC<{ onProductClick: (p: Product) => void }> = ({ onProductCli
           
           <div className="grid md:grid-cols-3 gap-6">
             {categories.map(cat => (
-              <Link to={`/${cat.id}`} key={cat.id} className="group block">
+              <Link 
+                to={`/${cat.id}`} 
+                key={cat.id} 
+                className="group block"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 <div className="relative overflow-hidden aspect-[4/3] bg-black border border-[#2A2A2A]">
                   <img src={cat.image} alt={cat.name} className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/70 to-black" />
@@ -461,7 +491,13 @@ const CategoryPage: React.FC<{
     <div className="pt-20 bg-[#0F0F0F] min-h-screen">
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-12">
         <div className="max-w-3xl">
-          <Link to="/" className="text-xs tracking-[3px] text-[#C5A26F] mb-3 inline-block">BACK TO HOME</Link>
+          <Link 
+            to="/" 
+            className="text-xs tracking-[3px] text-[#C5A26F] mb-3 inline-block"
+            onClick={() => window.scrollTo(0, 0)}
+          >
+            BACK TO HOME
+          </Link>
           <h1 className="serif text-white text-[68px] tracking-[-2.6px] leading-none mb-4">{catInfo.name}</h1>
           <p className="text-xl text-[#B8B8B8]">{catInfo.description}</p>
         </div>
