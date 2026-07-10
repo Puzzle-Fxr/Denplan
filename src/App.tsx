@@ -145,7 +145,7 @@ const Navigation: React.FC = () => {
           <Link to="/" className="flex items-center gap-3">
             <div className="flex items-center">
               <img 
-                src="/images/upload_1.png" 
+                src="/images/denplanlogo.png" 
                 alt="Deplan Trading Enterprise" 
                 className="h-18 w-auto"
               />
@@ -591,7 +591,7 @@ const AppContent: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.35 }}
-              src="/images/upload_1.png"
+              src="/images/denplanlogo.png"
               alt="Deplan Trading Enterprise"
               className="h-40 w-auto max-w-[80vw] object-contain sm:h-56"
             />
