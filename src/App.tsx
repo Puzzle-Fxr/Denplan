@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { 
   Menu, X, Phone, MapPin, Mail, Award, Shield, Clock, ChevronRight, 
-  ArrowRight 
+  ArrowRight, Users 
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -16,6 +16,15 @@ interface Product {
   price: string;
   description: string;
   specs: string[];
+  image: string;
+}
+
+// Leadership Person
+interface Person {
+  id: number;
+  name: string;
+  title: string;
+  bio: string;
   image: string;
 }
 
@@ -123,6 +132,30 @@ const categories: Category[] = [
   }
 ];
 
+const leadershipTeam: Person[] = [
+  {
+    id: 1,
+    name: "Mr. Kwame Nkrumah",
+    title: "Founder & CEO",
+    bio: "A visionary entrepreneur, Mr. Nkrumah established Deplan Trading Enterprise in 2009 with a commitment to integrity and excellence. His leadership has guided the company to become Ghana's premier licensed dealer.",
+    image: "/images/leader-kwame.jpg" // Placeholder image
+  },
+  {
+    id: 2,
+    name: "Dr. Ama Mensah",
+    title: "Head of Operations",
+    bio: "Dr. Mensah brings extensive strategic management expertise, ensuring seamless logistics and robust operational frameworks. Her dedication to efficiency drives our commitment to timely and secure deliveries.",
+    image: "/images/leader-ama.jpg" // Placeholder image
+  },
+  {
+    id: 3,
+    name: "Mr. Yaw Boateng",
+    title: "Chief Compliance Officer",
+    bio: "Mr. Boateng is our guardian of regulatory adherence. With deep knowledge of Ghana's firearms legislation, he ensures that all Deplan operations not only meet but exceed compliance standards.",
+    image: "/images/leader-yaw.jpg" // Placeholder image
+  }
+];
+
 // Navigation Component
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -134,7 +167,7 @@ const Navigation: React.FC = () => {
     { path: '/ammunition', label: 'Ammunition' },
     { path: '/accessories', label: 'Accessories' },
     { path: '/about', label: 'About' },
-    { path: '/contact', label: 'Contact' },
+    { path: '/leadership', label: 'Leadership' },
   ];
 
   const scrollToTopAndCloseMenu = () => {
@@ -293,9 +326,13 @@ const ProductModal: React.FC<{
             </div>
 
             <div className="mt-auto pt-8 border-t border-[#2A2A2A]">
-              <a href="#contact" className="block w-full text-center py-4 bg-[#C5A26F] hover:bg-[#A67C52] text-[#0F0F0F] font-semibold tracking-[1.5px] transition-colors">
+              <Link 
+                to="/contact" 
+                className="block w-full text-center py-4 bg-[#C5A26F] hover:bg-[#A67C52] text-[#0F0F0F] font-semibold tracking-[1.5px] transition-colors"
+                onClick={onClose} 
+              >
                 REQUEST QUOTE &amp; AVAILABILITY
-              </a>
+              </Link>
               <p className="text-center text-xs text-[#B8B8B8] mt-4 tracking-wider">LICENSED SALES ONLY • GHANA FIREARMS ACT COMPLIANT</p>
             </div>
           </div>
@@ -604,6 +641,54 @@ const Contact: React.FC = () => {
   );
 };
 
+//Leadership Page
+const LeadershipPage: React.FC = () => (
+  <div className="pt-20 bg-[#0F0F0F] min-h-screen">
+    <div className="max-w-4xl mx-auto px-6 pt-20 pb-24">
+      <div className="text-[#C5A26F] text-xs tracking-[4px] mb-2">OUR FOUNDATION</div>
+      <h1 className="serif text-[72px] tracking-[-3.5px] text-white leading-none mt-2 mb-9">Meet Our Leadership</h1>
+      
+      <div className="prose prose-invert max-w-none text-[#B8B8B8] text-[15px] leading-[1.75] mb-16">
+        <p className="text-xl text-white tracking-tight">
+          At Deplan Trading Enterprise, our leadership team is dedicated to upholding the highest standards of integrity, expertise, and client service.
+        </p>
+        <p>
+          With decades of combined experience in the firearms industry and a deep understanding of the Ghanaian market, our executives are committed to ethical practices, regulatory compliance, and fostering long-term relationships built on trust.
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-x-12 gap-y-16">
+        {leadershipTeam.map(person => (
+          <div key={person.id} className="flex flex-col">
+            <div className="relative aspect-[3/2] overflow-hidden mb-6 bg-black border border-[#2A2A2A]">
+              <img 
+                src={person.image} 
+                alt={person.name} 
+                className="w-full h-full object-cover opacity-75" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            </div>
+            <div className="text-[#C5A26F] tracking-widest text-xs mb-1">{person.title.toUpperCase()}</div>
+            <h3 className="serif text-white text-3xl mb-3">{person.name}</h3>
+            <p className="text-[#B8B8B8] text-[15px] leading-relaxed">{person.bio}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-20 pt-12 border-t border-[#2A2A2A] text-center">
+        <div className="text-[#C5A26F] text-xs tracking-[3px] mb-3">HAVE QUESTIONS?</div>
+        <Link 
+          to="/contact" 
+          className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#C5A26F] hover:bg-[#A67C52] text-[#0F0F0F] font-semibold tracking-[2px] transition-all text-sm"
+          onClick={() => window.scrollTo(0, 0)}
+        >
+          CONTACT OUR TEAM <ArrowRight size={18} />
+        </Link>
+      </div>
+    </div>
+  </div>
+);
+
 // Main App
 const AppContent: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -644,6 +729,7 @@ const AppContent: React.FC = () => {
         <Route path="/accessories" element={<CategoryPage category="accessories" onProductClick={setSelectedProduct} />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/leadership" element={<LeadershipPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
       </Routes>
 
