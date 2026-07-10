@@ -145,9 +145,9 @@ const Navigation: React.FC = () => {
           <Link to="/" className="flex items-center gap-3">
             <div className="flex items-center">
               <img 
-                src="/uploads/upload_1.png" 
+                src="/images/upload_1.png" 
                 alt="Deplan Trading Enterprise" 
-                className="h-25 w-auto"
+                className="h-18 w-auto"
               />
             </div>
           </Link>
@@ -569,46 +569,75 @@ const Contact: React.FC = () => {
 };
 
 // Main App
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [showIntroOverlay, setShowIntroOverlay] = useState(true);
+  const location = useLocation();
+  const shouldShowOverlay = showIntroOverlay && location.pathname === '/';
 
   return (
-    <Router>
-      <div className="bg-[#0F0F0F] text-[#F5F5F5] min-h-screen overflow-x-hidden">
-        <Navigation />
-        
-        <Routes>
-          <Route path="/" element={<Home onProductClick={setSelectedProduct} />} />
-          <Route path="/shotguns" element={<CategoryPage category="shotguns" onProductClick={setSelectedProduct} />} />
-          <Route path="/ammunition" element={<CategoryPage category="ammunition" onProductClick={setSelectedProduct} />} />
-          <Route path="/accessories" element={<CategoryPage category="accessories" onProductClick={setSelectedProduct} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-        </Routes>
+    <div className="bg-[#0F0F0F] text-[#F5F5F5] min-h-screen overflow-x-hidden">
+      <AnimatePresence>
+        {shouldShowOverlay && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35 }}
+            onClick={() => setShowIntroOverlay(false)}
+            className="fixed inset-0 z-[120] flex cursor-pointer items-center justify-center bg-[#1C2526]"
+          >
+            <motion.img
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.35 }}
+              src="/images/upload_1.png"
+              alt="Deplan Trading Enterprise"
+              className="h-40 w-auto max-w-[80vw] object-contain sm:h-56"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-        {/* Footer */}
-        <footer className="bg-black py-16 px-6 border-t border-[#2A2A2A]">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-y-6 text-xs tracking-[1.5px] text-[#666]">
-            <div>© {CURRENT_YEAR} DEPLAN TRADING ENTERPRISE. ALL RIGHTS RESERVED.</div>
-            <div className="flex gap-x-8">
-              <div>LICENSED BY GHANA POLICE SERVICE</div>
-              <Link to="/privacy-policy" className="hover:text-white transition-colors">PRIVACY POLICY</Link>
-            </div>
-            <div>ACCRA, GHANA</div>
+      <Navigation />
+      
+      <Routes>
+        <Route path="/" element={<Home onProductClick={setSelectedProduct} />} />
+        <Route path="/shotguns" element={<CategoryPage category="shotguns" onProductClick={setSelectedProduct} />} />
+        <Route path="/ammunition" element={<CategoryPage category="ammunition" onProductClick={setSelectedProduct} />} />
+        <Route path="/accessories" element={<CategoryPage category="accessories" onProductClick={setSelectedProduct} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+      </Routes>
+
+      {/* Footer */}
+      <footer className="bg-black py-16 px-6 border-t border-[#2A2A2A]">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-y-6 text-xs tracking-[1.5px] text-[#666]">
+          <div>© {CURRENT_YEAR} DEPLAN TRADING ENTERPRISE. ALL RIGHTS RESERVED.</div>
+          <div className="flex gap-x-8">
+            <div>LICENSED BY GHANA POLICE SERVICE</div>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">PRIVACY POLICY</Link>
           </div>
-        </footer>
+          <div>ACCRA, GHANA</div>
+        </div>
+      </footer>
 
-        {/* Product Modal */}
-        <AnimatePresence>
-          {selectedProduct && (
-            <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
-          )}
-        </AnimatePresence>
-      </div>
-    </Router>
+      {/* Product Modal */}
+      <AnimatePresence>
+        {selectedProduct && (
+          <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
+
+const App: React.FC = () => (
+  <Router>
+    <AppContent />
+  </Router>
+);
 
 export default App;
 
