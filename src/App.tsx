@@ -699,6 +699,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="bg-[#0F0F0F] text-[#F5F5F5] min-h-screen overflow-x-hidden">
+      {/* Intro Overlay */}
       <AnimatePresence>
         {shouldShowOverlay && (
           <motion.div
@@ -713,7 +714,7 @@ const AppContent: React.FC = () => {
               imageUrl="/images/shell.png"
               numberOfRows={4} // Adjust for desired pattern visibility
               speed={10}       // Animation speed
-              offset={90}      // Movement offset
+              offset={60}      // Movement offset
               className="opacity-50 pointer-events-none" // Maintain existing visual and interaction properties
             />
 
@@ -725,6 +726,15 @@ const AppContent: React.FC = () => {
               className="serif text-[#C5A26F] text-5xl md:text-6xl tracking-[-1.5px] leading-tight mb-8 max-w-4xl px-4"
             >
               WE ARE DENPLAN
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.35, delay: 0.1 }}
+              className="serif text-[#C5A26F] text-2xl md:text-2xl tracking-[-1.5px] leading-tight mb-2 max-w-4xl px-4"
+            >
+              - EST 2009 -
             </motion.div>
             <motion.img
               initial={{ opacity: 0, scale: 0.95 }}
@@ -740,9 +750,9 @@ const AppContent: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.35, delay: 0.1 }}
-              className="serif text-[#C5A26F] text-5xl md:text-6xl tracking-[-1.5px] leading-tight mt-8 max-w-4xl px-4"
+              className="serif text-[#C5A26F] text-4xl md:text-4xl tracking-[-1.5px] leading-tight mt-8 max-w-4xl px-4"
             >
-              PRECISION. TRADITION. TRUST.
+              ★ TRADITION ★<br />★ PRECISION ★<br />★ TRUST ★
             </motion.div>
           </motion.div>
         )}
