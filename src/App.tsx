@@ -707,6 +707,12 @@ const AppContent: React.FC = () => {
             onClick={() => setShowIntroOverlay(false)}
             className="fixed inset-0 z-[120] flex cursor-pointer flex-col items-center justify-center bg-[#1C2526] text-center"
           >
+            {/* Tiled background overlay */}
+            <div 
+              className="absolute inset-0 bg-[url('/images/shell.png')] bg-repeat opacity-10 pointer-events-none" 
+              aria-hidden="true" 
+            />
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -720,7 +726,7 @@ const AppContent: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.35, delay: 0.2 }} // Added delay for sequential animation
+              transition={{ duration: 0.35, delay: 0.2 }}
               src="/images/denplanlogo.png"
               alt="Deplan Trading Enterprise"
               className="h-40 w-auto max-w-[80vw] object-contain sm:h-56 drop-shadow-[0_0_20px_rgba(197,162,111,0.5)]"
@@ -730,7 +736,7 @@ const AppContent: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.35, delay: 0.1 }}
-              className="serif text-[#C5A26F] text-5xl md:text-4xl tracking-[-1.5px] leading-tight mt-8 max-w-4xl px-4"
+              className="serif text-[#C5A26F] text-5xl md:text-6xl tracking-[-1.5px] leading-tight mt-8 max-w-4xl px-4"
             >
               PRECISION. TRADITION. TRUST.
             </motion.div>
