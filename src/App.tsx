@@ -5,6 +5,7 @@ import {
   ArrowRight, Users 
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import AnimatedBackgroundRows from './components/AnimatedBackgroundRows';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -707,10 +708,13 @@ const AppContent: React.FC = () => {
             onClick={() => setShowIntroOverlay(false)}
             className="fixed inset-0 z-[120] flex cursor-pointer flex-col items-center justify-center bg-[#1C2526] text-center"
           >
-            {/* Tiled background overlay */}
-            <div 
-              className="absolute inset-0 bg-[url('/images/shell.png')] bg-repeat opacity-10 pointer-events-none" 
-              aria-hidden="true" 
+            {/* Tiled background overlay - Now animated */}
+            <AnimatedBackgroundRows
+              imageUrl="/images/shell.png"
+              numberOfRows={4} // Adjust for desired pattern visibility
+              speed={10}       // Animation speed
+              offset={90}      // Movement offset
+              className="opacity-50 pointer-events-none" // Maintain existing visual and interaction properties
             />
 
             <motion.div
