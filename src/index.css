@@ -92,3 +92,16 @@ h1, h2, h3, .serif {
   outline: none;
 }
 
+.logo-pulse {
+  animation: shadowPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes shadowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 40px rgba(197, 162, 111, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 60px rgba(197, 162, 111, 0.8));
+  }
+}
+

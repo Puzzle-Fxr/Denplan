@@ -717,25 +717,6 @@ const AppContent: React.FC = () => {
               offset={60}      // Movement offset
               className="opacity-50 pointer-events-none" // Maintain existing visual and interaction properties
             />
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.35, delay: 0.1 }}
-              className="absolute top-8 left-1/2 -translate-x-1/2 serif text-[#C5A26F] text-2xl md:text-2xl tracking-[-1.5px] leading-tight mb-8 max-w-4xl px-4"
-            >
-              - SINCE 2009 -
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.35, delay: 0.1 }}
-              className="serif text-[#C5A26F] text-5xl md:text-6xl tracking-[-1.5px] leading-tight max-w-4xl px-4"
-            >
-              WE ARE DENPLAN
-            </motion.div>
             <motion.img
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -743,35 +724,16 @@ const AppContent: React.FC = () => {
               transition={{ duration: 0.35, delay: 0.2 }}
               src="/images/denplanlogo.png"
               alt="Deplan Trading Enterprise"
-              className="h-40 w-auto max-w-[40vw] object-contain sm:h-80 drop-shadow-[0_0_40px_rgba(197,162,111,0.5)]"
+              className="h-40 w-auto max-w-[40vw] object-contain sm:h-150 drop-shadow-[0_0_40px_rgba(197,162,111,0.5)] logo-pulse"
             />
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0, scale: [1, 1.02, 1] }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ 
-                duration: 0.35, 
-                delay: 0.1, 
-                scale: { 
-                  duration: 1.5, 
-                  repeat: Infinity, 
-                  repeatType: "reverse",
-                  ease: "easeInOut" 
-                }
-              }}
-              className="serif text-[#C5A26F] text-4xl md:text-4xl tracking-[-1.5px] leading-tight mt-8 max-w-4xl px-4"
-            >
-              CLICK TO BEGIN <br /> ⊙
-            </motion.div>
-            
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.35, delay: 0.1 }}
-              className="absolute bottom-8 left-1/2 -translate-x-1/2 serif text-[#C5A26F] text-l md:text-l tracking-widest leading-tight mt-auto px-4"
+              className="bottom-8 serif text-[#C5A26F] text-2xl md:text-2xl px-4"
             >
-              ★ TRADITION ★ PRECISION ★ TRUST ★
+              ★ Click to Enter ★
             </motion.div>
           </motion.div>
         )}
