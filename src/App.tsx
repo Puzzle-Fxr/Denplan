@@ -136,24 +136,45 @@ const categories: Category[] = [
 const leadershipTeam: Person[] = [
   {
     id: 1,
-    name: "Mr. Kwame Nkrumah",
-    title: "Founder & CEO",
-    bio: "A visionary entrepreneur, Mr. Nkrumah established Deplan Trading Enterprise in 2009 with a commitment to integrity and excellence. His leadership has guided the company to become Ghana's premier licensed dealer.",
-    image: "/images/leader-kwame.jpg" // Placeholder image
+    name: "Mr. Micheal Nelson Addae Kwayie",
+    title: "Founder",
+    bio: "A visionary entrepreneur, Mr. Kwayie established Deplan Trading Enterprise in 2009 with a commitment to integrity and excellence. His leadership has guided the company to become Ghana's premier licensed dealer.",
+    image: "/images/leader-micheal.jpg" // Placeholder image
   },
   {
     id: 2,
-    name: "Dr. Ama Mensah",
-    title: "Head of Operations",
-    bio: "Dr. Mensah brings extensive strategic management expertise, ensuring seamless logistics and robust operational frameworks. Her dedication to efficiency drives our commitment to timely and secure deliveries.",
-    image: "/images/leader-ama.jpg" // Placeholder image
+    name: "Mrs. Kate Addae Kwayie",
+    title: "CEO",
+    bio: "Mrs. Kwayie brings extensive strategic management expertise, ensuring seamless logistics and robust operational frameworks. Her dedication to efficiency drives our commitment to timely and secure deliveries.",
+    image: "/images/leader-kate.jpg" // Placeholder image
   },
   {
     id: 3,
-    name: "Mr. Yaw Boateng",
+    name: "Mrs. Erica Addae Kwayie",
+    title: "Head of Operations",
+    bio: "Mrs. Kwayie oversees daily operations, ensuring that every transaction meets our high standards. Her meticulous attention to detail guarantees that clients receive the best service and support.",
+    image: "/images/leader-erica.jpg" // Placeholder image
+  },
+  {
+    id: 4,
+    name: "Mr. Mike Addae Kwayie",
     title: "Chief Compliance Officer",
-    bio: "Mr. Boateng is our guardian of regulatory adherence. With deep knowledge of Ghana's firearms legislation, he ensures that all Deplan operations not only meet but exceed compliance standards.",
-    image: "/images/leader-yaw.jpg" // Placeholder image
+    bio: "Mr. Kwayie is our guardian of regulatory adherence. With deep knowledge of Ghana's firearms legislation, he ensures that all Deplan operations not only meet but exceed compliance standards.",
+    image: "/images/leader-mike.jpg" // Placeholder image
+  },
+  {
+    id: 5,
+    name: "Mrs. Gloria",
+    title: "Secretary & Administrative Officer",
+    bio: "Mrs. Gloria manages our administrative functions with precision and care. Her organizational skills ensure that all client communications and documentation are handled efficiently and professionally.",
+    image: "/images/leader-gloria.jpg" // Placeholder image
+  },
+  {
+    id: 6,
+    name: "Mr. Foster",
+    title: "Chief Logistics Officer",
+    bio: "Mr. Foster coordinates the secure and timely transportation of all firearms and ammunition. His expertise in logistics ensures that every delivery is executed flawlessly, maintaining the trust of our clients.",
+    image: "/images/leader-foster.jpg" // Placeholder image
   }
 ];
 
